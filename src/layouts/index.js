@@ -1,3 +1,4 @@
+import {Outlet, history, terminal} from 'umi';
 import {app} from '@/defaults';
 import sidebarMenu from '@/sidebarMenu';
 import {UserOutlined} from '@ant-design/icons';
@@ -6,11 +7,11 @@ import {Avatar, ConfigProvider} from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 import React, {useState} from 'react';
 
-const Container = props =>
+export default () =>
 {
-    const {children, history} = props;
-
     const [pathname, setPathname] = useState(document.location.pathname);
+
+    terminal.log(history.location);
 
     return <ConfigProvider locale={enUS}>
         <ProLayout {...sidebarMenu}
@@ -33,9 +34,9 @@ const Container = props =>
                                    icon={<UserOutlined/>}/>
                        </div>
                    }>
-            {children}
+            <Outlet context={{
+                debug: true
+            }}/>
         </ProLayout>
     </ConfigProvider>;
 };
-
-export default Container;

@@ -6,33 +6,22 @@
 import {defineConfig} from 'umi';
 
 export default defineConfig({
-    //favicon: '/assets/favicon.ico',
     title: 'My Dashboard',
 
     theme: {
         '@primary-color': '#482684'
     },
 
-    dynamicImport: {
-        loading: '@/components/Loading'
-    },
-
-    plugins: [],
+    /*dynamicImport: {
+     loading: '@/components/Loading'
+     },*/
 
     //this line allows handling Page Not found errors and displays content from 404.js
-    404: true,
+    //404: true,
 
-    fastRefresh: {},
+    /*fastRefresh: true,
 
     ignoreMomentLocale: true,
 
-    nodeModulesTransform: {
-        type: 'none'
-    },
-
-    devtool: false,
-
-    mfsu: {
-        production: {}
-    }
+    devtool: process.env.NODE_ENV === 'development' ? 'eval' : false,*/
 });
