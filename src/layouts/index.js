@@ -1,4 +1,3 @@
-import {Outlet, history, terminal} from 'umi';
 import {app} from '@/defaults';
 import sidebarMenu from '@/sidebarMenu';
 import {UserOutlined} from '@ant-design/icons';
@@ -6,12 +5,11 @@ import ProLayout from '@ant-design/pro-layout';
 import {Avatar, ConfigProvider} from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 import React, {useState} from 'react';
+import {Outlet} from 'umi';
 
 export default () =>
 {
     const [pathname, setPathname] = useState(document.location.pathname);
-
-    terminal.log(history.location);
 
     return <ConfigProvider locale={enUS}>
         <ProLayout {...sidebarMenu}

@@ -2,10 +2,15 @@ import ContentArea from '@/components/ContentArea';
 import {gridGutter} from '@/defaults';
 import ProCard from '@ant-design/pro-card';
 import {Divider, Statistic} from 'antd';
+import {useOutletContext} from 'umi';
 
 const Page = props =>
 {
     const {history} = props;
+    const ctx = useOutletContext()
+
+    console.log(ctx)
+
     return <ContentArea title={'Welcome'}
                         subTitle={'You are logged as Demo user'}>
         <ProCard direction={'row'}

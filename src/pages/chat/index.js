@@ -3,7 +3,7 @@ import ProCard from '@ant-design/pro-card';
 import {useMount, useWebSocket} from 'ahooks';
 import {Button, Comment, Form, Input} from 'antd';
 import dayjs from 'dayjs';
-import {useEffect, useMemo, useRef} from 'react';
+import {useMemo, useRef} from 'react';
 import {Scrollbars} from 'react-custom-scrollbars';
 
 const ReadyState = {
@@ -25,7 +25,8 @@ const uiMessage = (raw, index) =>
                         datetime={dayjs().format('YYYY-MM-DD HH:mm:ss')}
                         avatar={<UserOutlined/>}
                         content={message}/>;
-    } catch (ex)
+    }
+    catch (ex)
     {
         //skip if someone sent something non-json
     }
@@ -39,7 +40,10 @@ const Page = () =>
     const refScroll = useRef();
 
     const {readyState, sendMessage, latestMessage, disconnect, connect} = useWebSocket(
-        'ws://demo-chat.anyscripts.com/pubsub/mydemochatroom'
+        'ws://demo-chat.anyscripts.com/pubsub/mydemochatroom',
+        {
+            reconnectLimit: 3
+        }
     );
 
     const messageHistory = useRef([]);

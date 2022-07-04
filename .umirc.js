@@ -5,6 +5,8 @@
  */
 import {defineConfig} from 'umi';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default defineConfig({
     title: 'My Dashboard',
 
@@ -12,16 +14,7 @@ export default defineConfig({
         '@primary-color': '#482684'
     },
 
-    /*dynamicImport: {
-     loading: '@/components/Loading'
-     },*/
-
-    //this line allows handling Page Not found errors and displays content from 404.js
-    //404: true,
-
-    /*fastRefresh: true,
-
-    ignoreMomentLocale: true,
-
-    devtool: process.env.NODE_ENV === 'development' ? 'eval' : false,*/
+    deadCode: isProduction ? {} : false,
+    devtool: isProduction ? false : 'eval',
+    ignoreMomentLocale: true
 });
