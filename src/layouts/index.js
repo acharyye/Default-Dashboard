@@ -5,7 +5,7 @@ import ProLayout from '@ant-design/pro-layout';
 import {Avatar, ConfigProvider} from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 import React, {useState} from 'react';
-import {Outlet} from 'umi';
+import {Outlet, history} from 'umi';
 
 export default () =>
 {
