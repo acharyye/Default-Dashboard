@@ -1,10 +1,9 @@
 import ContentArea from '@/components/ContentArea';
 import {Button} from 'antd';
+import {history} from 'umi';
 
-const Page = props =>
+const Page = () =>
 {
-    const {history} = props;
-
     return <ContentArea title={'Users'}>
 
         <Button type={'link'}
